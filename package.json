@@ -1,0 +1,10 @@
+{
+  "name": "crust-hut-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix crust_hut",
+    "build": "npm run build --prefix crust_hut",
+    "start": "npm run start --prefix crust_hut",
+    "lint": "npm run lint --prefix crust_hut"
+  }
+}
