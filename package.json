@@ -2,9 +2,10 @@
   "name": "crust-hut-frontend",
   "private": true,
   "scripts": {
-    "dev": "npm run dev --prefix crust_hut",
-    "build": "npm run build --prefix crust_hut",
-    "start": "npm run start --prefix crust_hut",
-    "lint": "npm run lint --prefix crust_hut"
+    "postinstall": "node -e \"if (require('fs').existsSync('./crust_hut/package.json')) { console.log('Installing crust_hut dependencies...'); require('child_process').execSync('npm install', {cwd: './crust_hut', stdio: 'inherit'}); }\"",
+    "dev": "node -e \"if (require('fs').existsSync('./crust_hut/package.json')) { require('child_process').execSync('npm run dev', {cwd: './crust_hut', stdio: 'inherit'}); } else { require('child_process').execSync('next dev', {stdio: 'inherit'}); }\"",
+    "build": "node -e \"if (require('fs').existsSync('./crust_hut/package.json')) { require('child_process').execSync('npm run build', {cwd: './crust_hut', stdio: 'inherit'}); } else { require('child_process').execSync('next build', {stdio: 'inherit'}); }\"",
+    "start": "node -e \"if (require('fs').existsSync('./crust_hut/package.json')) { require('child_process').execSync('npm run start', {cwd: './crust_hut', stdio: 'inherit'}); } else { require('child_process').execSync('next start', {stdio: 'inherit'}); }\"",
+    "lint": "node -e \"if (require('fs').existsSync('./crust_hut/package.json')) { require('child_process').execSync('npm run lint', {cwd: './crust_hut', stdio: 'inherit'}); } else { require('child_process').execSync('eslint', {stdio: 'inherit'}); }\""
   }
 }
